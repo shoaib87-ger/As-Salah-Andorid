@@ -1,12 +1,12 @@
 {
-  "versionName": "1.1",
-  "versionCode": 3,
+  "versionName": "1.2",
+  "versionCode": 4,
   "apkUrl": "./downloads/AsSalah.apk",
   "sizeMb": 11.1,
   "date": "2026-08-01",
   "notes": {
-    "de": "Die Android-App ist jetzt auf dem Stand der iPhone-App.\n• Gebetszeiten erscheinen sofort auf der Startseite\n• Neuer Einstellungs-Bereich (Zahnrad): Sprache, Berechnungsmethode, Rechtsschule, Datenquelle\n• Vier Sprachen: Deutsch, English, Español, دری\n• Erinnerungen pro Gebet, wahlweise 15 Minuten vorher\n• Zeigt das laufende Gebet mit Restzeit statt nur das nächste\n• Tablet-Darstellung korrigiert",
-    "en": "The Android app now matches the iPhone app.\n• Prayer times appear right on the home screen\n• New settings area (gear): language, calculation method, school of law, data source\n• Four languages: Deutsch, English, Español, دری\n• Reminders per prayer, optionally 15 minutes early\n• Shows the current prayer with time left, not just the next one\n• Fixed tablet layout",
-    "da": "برنامه اندروید اکنون همتراز برنامه آیفون است.\n• اوقات نماز بلافاصله در صفحه اصلی دیده می‌شود\n• بخش تنظیمات جدید (چرخ‌دنده): زبان، روش محاسبه، مذهب، منبع داده\n• چهار زبان: آلمانی، انگلیسی، اسپانیایی، دری\n• یادآوری برای هر نماز، در صورت تمایل ۱۵ دقیقه زودتر\n• نماز جاری با زمان باقی‌مانده نمایش داده می‌شود\n• نمایش تبلت اصلاح شد"
+    "de": "Symmetrische Kacheln auf der Startseite.\n• Arabischer und deutscher Name stehen jetzt mittig in der Kachel, ebenso Gebet und Restzeit\n• Zahnrad bleibt in allen Sprachen oben rechts\n• Aufbaut auf 1.1: vier Sprachen, Einstellungen, Erinnerungen, laufendes Gebet, korrigierte Tablet-Ansicht",
+    "en": "Symmetric tiles on the home screen.\n• Arabic and Latin names are now centred in the tile, as are prayer and time left\n• The gear stays top right in every language\n• Builds on 1.1: four languages, settings, reminders, current prayer, fixed tablet layout",
+    "da": "کاشی‌های متقارن در صفحه اصلی.\n• نام عربی و لاتین اکنون در وسط کاشی قرار دارد، همچنین نماز و زمان باقی‌مانده\n• چرخ‌دنده در همه زبان‌ها بالا سمت راست می‌ماند\n• بر پایه ۱.۱: چهار زبان، تنظیمات، یادآوری‌ها، نماز جاری، نمایش تبلت اصلاح‌شده"
   }
 }
