@@ -1,0 +1,12 @@
+{
+  "versionName": "1.0",
+  "versionCode": 2,
+  "apkUrl": "./downloads/AsSalah.apk",
+  "sizeMb": 11.1,
+  "date": "2026-08-01",
+  "notes": {
+    "de": "Erste öffentliche Version von As-Salah.\n• Gebetszeiten für deinen Standort mit Countdown zum nächsten Gebet\n• Qibla-Kompass mit Rückmeldung, wenn du richtig stehst\n• Funktioniert auch offline\n• Kein Tracking, keine Werbung",
+    "en": "First public release of As-Salah.\n• Prayer times for your location with a countdown to the next prayer\n• Qibla compass that tells you when you are facing the right way\n• Works offline too\n• No tracking, no ads",
+    "da": "نخستین نسخه عمومی As-Salah.\n• اوقات نماز برای موقعیت شما همراه با شمارش معکوس تا نماز بعدی\n• قطب‌نمای قبله که می‌گوید کی درست ایستاده‌اید\n• بدون اینترنت هم کار می‌کند\n• بدون ردیابی، بدون تبلیغات"
+  }
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<meta name="description" content="As-Salah — Gebetszeiten und Qibla-Kompass. Kostenlos, ohne Werbung, ohne Tracking. APK direkt herunterladen.">
+<title>As-Salah — Gebetszeiten &amp; Qibla</title>
+<style>
+/* Die Seite ist bewusst NUR hell. Kein prefers-color-scheme, kein Dark-Mode-
+   Block — auch bei erzwungenem Systemdunkelmodus bleibt alles hell. */
+:root{
+  color-scheme: light only;
+  --midnight:#2A3344; --midnight-deep:#222A38; --surface-dark:#3A4356;
+  --gold:#C9973F; --gold-soft:#E9C285; --gold-tint:#FBF3E4;
+  --page:#FBF8F2; --card:#FFFFFF; --ink:#26303F; --ink-muted:#5D6675;
+  --ink-faint:#8A8F99; --line:#E7E0D4; --green:#2F7D53;
+  --radius:18px; --shadow:0 10px 30px rgba(34,42,56,.08);
+}
+*{box-sizing:border-box}
+html{background:var(--page); -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--page); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.65; font-size:16px;
+}
+.ar{font-family:"Amiri","Scheherazade New","Geeza Pro","Noto Naskh Arabic",serif}
+img,svg{max-width:100%}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+a{color:#8A6A24}
+
+/* ---------- Kopf ---------- */
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;gap:14px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:600}
+.brand .ico{width:38px;height:38px;border-radius:11px;flex:0 0 38px}
+.brand small{display:block;font-weight:400;font-size:12px;color:var(--ink-faint);letter-spacing:.16em}
+.copyright{font-size:13px;color:var(--ink-muted);margin-inline-start:auto}
+.langs{display:flex;gap:4px;background:var(--gold-tint);border:1px solid var(--line);
+  border-radius:999px;padding:3px}
+.langs button{border:0;background:transparent;border-radius:999px;padding:5px 12px;
+  font:inherit;font-size:13px;color:var(--ink-muted);cursor:pointer;transition:.18s}
+.langs button[aria-pressed="true"]{background:var(--midnight);color:var(--gold-soft)}
+
+/* ---------- Held ---------- */
+.hero{background:linear-gradient(160deg,var(--surface-dark),var(--midnight-deep));
+  color:#F5F0E8;border-radius:26px;margin:28px 0;padding:38px 28px;position:relative;
+  overflow:hidden;box-shadow:var(--shadow)}
+.hero .deco{position:absolute;inset-inline-end:-40px;bottom:-60px;width:280px;opacity:.13;pointer-events:none}
+.hero h1{font-size:46px;margin:0;line-height:1.15;font-weight:500}
+.tagline{color:var(--gold-soft);font-size:12px;letter-spacing:.42em;text-transform:uppercase;margin:10px 0 4px}
+.hero p.sub{color:#C7BDB1;margin:6px 0 0;max-width:46ch}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;padding:5px 13px;font-size:13px;color:#EDE6DB}
+.chip.new{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--midnight-deep);font-weight:600}
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:var(--gold-soft);
+  color:var(--midnight-deep);text-decoration:none;font-weight:600;font-size:17px;
+  padding:15px 30px;border-radius:999px;box-shadow:0 8px 22px rgba(233,194,133,.30);
+  transition:transform .18s ease, box-shadow .18s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(233,194,133,.42)}
+.cta:active{transform:translateY(0)}
+.cta svg{width:19px;height:19px}
+.hint{color:#9A9186;font-size:13px;margin-top:12px}
+
+/* ---------- Abschnitte ---------- */
+section{margin:44px 0}
+h2{font-size:23px;font-weight:600;margin:0 0 6px}
+.lead{color:var(--ink-muted);margin:0 0 20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow)}
+.card h3{margin:10px 0 4px;font-size:16px;font-weight:600}
+.card p{margin:0;color:var(--ink-muted);font-size:14px}
+.card .ic{width:40px;height:40px;border-radius:12px;background:var(--gold-tint);
+  display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.card .ic svg{width:21px;height:21px}
+
+/* Screenshot-Platzhalter */
+.shots{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.phone{aspect-ratio:9/19;max-width:230px;margin:0 auto;width:100%;
+  border-radius:26px;border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--surface-dark),var(--midnight-deep));
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#8F97A6;font-size:13px;padding:18px;box-shadow:var(--shadow)}
+
+/* Was ist neu */
+.notes{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold-soft);
+  border-radius:var(--radius);padding:20px;white-space:pre-line;color:var(--ink-muted)}
+
+/* Anleitung */
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:16px 18px 16px 60px;position:relative;box-shadow:var(--shadow)}
+html[dir="rtl"] ol.steps li{padding:16px 60px 16px 18px}
+ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:18px;top:16px;
+  width:28px;height:28px;border-radius:50%;background:var(--midnight);color:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600}
+ol.steps strong{display:block;color:var(--ink)}
+ol.steps span{color:var(--ink-muted);font-size:14px}
+.safe{margin-top:14px;background:#F2F7F3;border:1px solid #D6E7DC;border-radius:var(--radius);
+  padding:14px 18px;color:#2F5B42;font-size:14px}
+
+footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
+  color:var(--ink-faint);font-size:13px;text-align:center;background:var(--card)}
+
+/* dezente Animationen — nur wenn JS laeuft; ohne JS bleibt alles sichtbar */
+.js .rise{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.js .rise.in{opacity:1;transform:none}
+@keyframes glow{0%,100%{opacity:.13}50%{opacity:.2}}
+.hero .deco{animation:glow 7s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  /* Muss die .js-.rise-Regel schlagen, sonst bliebe der halbe Seiteninhalt
+     bei aktivierter Bewegungsreduzierung dauerhaft unsichtbar. */
+  .js .rise,.rise{opacity:1!important;transform:none!important}
+}
+@media (max-width:600px){ .hero h1{font-size:36px} .hero{padding:30px 20px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hdr">
+    <div class="brand">
+      <svg class="ico" viewBox="0 0 108 108" aria-hidden="true">
+        <defs><linearGradient id="bg" x1="54" y1="0" x2="54" y2="108" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#475168"/><stop offset="1" stop-color="#222A38"/></linearGradient></defs>
+        <rect width="108" height="108" rx="24" fill="url(#bg)"/>
+        <path d="M22 100V56Q22 14 54 8Q86 14 86 56v44z" fill="#222A38" stroke="#E9C285" stroke-width="1.4"/>
+        <path d="M32 100V60Q32 24 54 19Q76 24 76 60v40" fill="none" stroke="#E9C285" stroke-width=".7" opacity=".55"/>
+        <circle cx="54" cy="60" r="14" fill="#E9C285"/><circle cx="58" cy="58" r="11.5" fill="#222A38"/>
+        <circle cx="75" cy="52" r="1.6" fill="#E9C285"/>
+      </svg>
+      <span>As-Salah<small data-i18n="tagline">AS — SALAH</small></span>
+    </div>
+    <div class="copyright">© Dr. Shoaib Seddiqi</div>
+    <div class="langs" role="group" aria-label="Sprache">
+      <button data-setlang="de" aria-pressed="true">DE</button>
+      <button data-setlang="en" aria-pressed="false">EN</button>
+      <button data-setlang="da" aria-pressed="false" class="ar">دری</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <svg class="deco" viewBox="0 0 200 260" aria-hidden="true">
+      <path d="M20 260V110Q20 20 100 6Q180 20 180 110v150z" fill="none" stroke="#E9C285" stroke-width="3"/>
+      <circle cx="100" cy="120" r="34" fill="#E9C285"/><circle cx="112" cy="112" r="28" fill="#222A38"/>
+    </svg>
+    <h1 class="ar">الصَّلَاة</h1>
+    <div class="tagline">AS — SALAH</div>
+    <p class="sub" data-i18n="heroSub">Gebetszeiten und Qibla-Kompass — ruhig, offline-fähig, ohne Werbung und ohne Tracking.</p>
+    <div class="meta">
+      <span class="chip" id="chip-version">—</span>
+      <span class="chip" id="chip-date">—</span>
+      <span class="chip" id="chip-size">—</span>
+      <span class="chip new" id="chip-new" hidden data-i18n="badgeNew">Neu</span>
+    </div>
+    <a class="cta" id="download" href="./downloads/AsSalah.apk" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 20h16"/></svg>
+      <span data-i18n="download">APK herunterladen</span>
+    </a>
+    <div class="hint" data-i18n="heroHint">Android · direkte Installation, kein Konto nötig</div>
+  </div>
+
+  <section class="rise">
+    <h2 data-i18n="featuresTitle">Was die App kann</h2>
+    <p class="lead" data-i18n="featuresLead">Zwei Dinge, dafür richtig.</p>
+    <div class="grid">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-i18n="f1t">Gebetszeiten</h3><p data-i18n="f1b">Sechs Zeiten für deinen Standort, mit Countdown zum nächsten Gebet.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg></div>
+        <h3 data-i18n="f2t">Qibla-Kompass</h3><p data-i18n="f2b">Zeigt die Richtung nach Makkah und meldet zurück, wenn du richtig stehst.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg></div>
+        <h3 data-i18n="f3t">Offline nutzbar</h3><p data-i18n="f3b">Ohne Internet rechnet die App die Zeiten selbst — unterwegs und im Funkloch.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/></svg></div>
+        <h3 data-i18n="f4t">Keine Datensammlung</h3><p data-i18n="f4b">Kein Tracking, keine Analytics, keine Werbung. Der Standort bleibt auf dem Gerät.</p></div>
+    </div>
+  </section>
+
+  <section class="rise">
+    <h2 data-i18n="shotsTitle">Bilder aus der App</h2>
+    <p class="lead" data-i18n="shotsLead">Screenshots folgen.</p>
+    <div class="shots">
+      <div class="phone" data-i18n="shot1">Startseite</div>
+      <div class="phone" data-i18n="shot2">Gebetszeiten</div>
+      <div class="phone" data-i18n="shot3">Qibla-Kompass</div>
+    </div>
+  </section>
+
+  <section class="rise">
+    <h2 data-i18n="newTitle">Was ist neu</h2>
+    <p class="lead"><span data-i18n="inVersion">In Version</span> <strong id="notes-version">—</strong></p>
+    <div class="notes" id="notes">—</div>
+  </section>
+
+  <section class="rise">
+    <h2 data-i18n="installTitle">Installation — Schritt für Schritt</h2>
+    <p class="lead" data-i18n="installLead">Die App kommt nicht aus einem Store, deshalb fragt Android einmal nach. Das ist normal.</p>
+    <ol class="steps">
+      <li><strong data-i18n="s1t">APK herunterladen</strong><span data-i18n="s1b">Auf den großen Knopf oben tippen. Die Datei landet in deinen Downloads.</span></li>
+      <li><strong data-i18n="s2t">Datei öffnen</strong><span data-i18n="s2b">Die heruntergeladene Datei antippen — oben in der Benachrichtigung oder in der App „Dateien“ unter „Downloads“.</span></li>
+      <li><strong data-i18n="s3t">Warnung bestätigen</strong><span data-i18n="s3b">Android meldet „unbekannte App“ oder „aus dieser Quelle installieren“. Auf „Einstellungen“ tippen, den Schalter für deinen Browser einschalten, zurückgehen.</span></li>
+      <li><strong data-i18n="s4t">Installieren</strong><span data-i18n="s4b">Auf „Trotzdem installieren“ bzw. „Installieren“ tippen. Fertig — As-Salah liegt jetzt in deiner App-Liste.</span></li>
+    </ol>
+    <div class="safe" data-i18n="safeNote">Die Warnung erscheint bei jeder App außerhalb eines Stores. Lade die Datei nur von dieser Seite herunter.</div>
+  </section>
+
+</main>
+
+<footer>© Dr. Shoaib Seddiqi · As-Salah</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var T = {
+    de: {
+      tagline:"AS — SALAH",
+      heroSub:"Gebetszeiten und Qibla-Kompass — ruhig, offline-fähig, ohne Werbung und ohne Tracking.",
+      download:"APK herunterladen", heroHint:"Android · direkte Installation, kein Konto nötig",
+      badgeNew:"Neue Version",
+      featuresTitle:"Was die App kann", featuresLead:"Zwei Dinge, dafür richtig.",
+      f1t:"Gebetszeiten", f1b:"Sechs Zeiten für deinen Standort, mit Countdown zum nächsten Gebet.",
+      f2t:"Qibla-Kompass", f2b:"Zeigt die Richtung nach Makkah und meldet zurück, wenn du richtig stehst.",
+      f3t:"Offline nutzbar", f3b:"Ohne Internet rechnet die App die Zeiten selbst — unterwegs und im Funkloch.",
+      f4t:"Keine Datensammlung", f4b:"Kein Tracking, keine Analytics, keine Werbung. Der Standort bleibt auf dem Gerät.",
+      shotsTitle:"Bilder aus der App", shotsLead:"Screenshots folgen.",
+      shot1:"Startseite", shot2:"Gebetszeiten", shot3:"Qibla-Kompass",
+      newTitle:"Was ist neu", inVersion:"In Version",
+      installTitle:"Installation — Schritt für Schritt",
+      installLead:"Die App kommt nicht aus einem Store, deshalb fragt Android einmal nach. Das ist normal.",
+      s1t:"APK herunterladen", s1b:"Auf den großen Knopf oben tippen. Die Datei landet in deinen Downloads.",
+      s2t:"Datei öffnen", s2b:"Die heruntergeladene Datei antippen — oben in der Benachrichtigung oder in der App „Dateien“ unter „Downloads“.",
+      s3t:"Warnung bestätigen", s3b:"Android meldet „unbekannte App“ oder „aus dieser Quelle installieren“. Auf „Einstellungen“ tippen, den Schalter für deinen Browser einschalten, zurückgehen.",
+      s4t:"Installieren", s4b:"Auf „Trotzdem installieren“ bzw. „Installieren“ tippen. Fertig — As-Salah liegt jetzt in deiner App-Liste.",
+      safeNote:"Die Warnung erscheint bei jeder App außerhalb eines Stores. Lade die Datei nur von dieser Seite herunter.",
+      version:"Version", size:"Größe", unknown:"unbekannt"
+    },
+    en: {
+      tagline:"AS — SALAH",
+      heroSub:"Prayer times and a Qibla compass — calm, offline-capable, no ads and no tracking.",
+      download:"Download APK", heroHint:"Android · direct install, no account needed",
+      badgeNew:"New version",
+      featuresTitle:"What the app does", featuresLead:"Two things, done properly.",
+      f1t:"Prayer times", f1b:"Six times for your location, with a countdown to the next prayer.",
+      f2t:"Qibla compass", f2b:"Points to Makkah and tells you when you are facing the right way.",
+      f3t:"Works offline", f3b:"Without internet the app calculates the times itself — on the road and out of coverage.",
+      f4t:"No data collection", f4b:"No tracking, no analytics, no ads. Your location stays on your device.",
+      shotsTitle:"Inside the app", shotsLead:"Screenshots coming soon.",
+      shot1:"Home", shot2:"Prayer times", shot3:"Qibla compass",
+      newTitle:"What's new", inVersion:"In version",
+      installTitle:"Installing — step by step",
+      installLead:"The app does not come from a store, so Android asks once. That is normal.",
+      s1t:"Download the APK", s1b:"Tap the big button above. The file lands in your Downloads.",
+      s2t:"Open the file", s2b:"Tap the downloaded file — in the notification at the top, or in the Files app under Downloads.",
+      s3t:"Confirm the warning", s3b:"Android says “unknown app” or “install from this source”. Tap Settings, turn on the switch for your browser, then go back.",
+      s4t:"Install", s4b:"Tap “Install anyway” or “Install”. Done — As-Salah is now in your app list.",
+      safeNote:"This warning appears for every app outside a store. Only download the file from this page.",
+      version:"Version", size:"Size", unknown:"unknown"
+    },
+    da: {
+      tagline:"AS — SALAH",
+      heroSub:"اوقات نماز و قطب‌نمای قبله — آرام، بدون اینترنت هم کار می‌کند، بدون تبلیغات و بدون ردیابی.",
+      download:"دانلود فایل APK", heroHint:"اندروید · نصب مستقیم، بدون نیاز به حساب",
+      badgeNew:"نسخه جدید",
+      featuresTitle:"برنامه چه می‌کند", featuresLead:"دو کار، اما درست.",
+      f1t:"اوقات نماز", f1b:"شش وقت برای موقعیت شما، همراه با شمارش معکوس تا نماز بعدی.",
+      f2t:"قطب‌نمای قبله", f2b:"جهت مکّه را نشان می‌دهد و می‌گوید کی درست ایستاده‌اید.",
+      f3t:"بدون اینترنت", f3b:"بدون اینترنت، برنامه اوقات را خودش محاسبه می‌کند — در سفر و جایی که شبکه نیست.",
+      f4t:"بدون جمع‌آوری داده", f4b:"بدون ردیابی، بدون تحلیل، بدون تبلیغات. موقعیت شما روی دستگاه می‌ماند.",
+      shotsTitle:"تصاویر برنامه", shotsLead:"تصاویر به‌زودی اضافه می‌شود.",
+      shot1:"صفحه اصلی", shot2:"اوقات نماز", shot3:"قطب‌نمای قبله",
+      newTitle:"تازه‌ها", inVersion:"در نسخه",
+      installTitle:"نصب — گام به گام",
+      installLead:"این برنامه از فروشگاه نمی‌آید، بنابراین اندروید یک‌بار می‌پرسد. این عادی است.",
+      s1t:"دانلود فایل APK", s1b:"دکمه بزرگ بالا را بزنید. فایل در پوشه دانلودها ذخیره می‌شود.",
+      s2t:"باز کردن فایل", s2b:"روی فایل دانلودشده بزنید — در اعلان بالا یا در برنامه «فایل‌ها» در بخش دانلودها.",
+      s3t:"تأیید هشدار", s3b:"اندروید می‌گوید «برنامه ناشناس» یا «نصب از این منبع». روی تنظیمات بزنید، کلید مرورگر خود را روشن کنید و برگردید.",
+      s4t:"نصب", s4b:"روی «به‌هرحال نصب کن» یا «نصب» بزنید. تمام — As-Salah اکنون در فهرست برنامه‌های شماست.",
+      safeNote:"این هشدار برای هر برنامه خارج از فروشگاه نمایش داده می‌شود. فایل را فقط از همین صفحه دانلود کنید.",
+      version:"نسخه", size:"حجم", unknown:"نامعلوم"
+    }
+  };
+
+  var SEEN_KEY = "assalah_seen_version_code";
+  var lang = "de";
+  var feed = null;
+
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  }
+
+  function applyLang(next){
+    lang = T[next] ? next : "de";
+    var t = T[lang];
+    document.documentElement.lang = (lang === "da" ? "fa" : lang);
+    document.documentElement.dir = (lang === "da" ? "rtl" : "ltr");
+    document.documentElement.setAttribute("data-lang", lang);
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++){
+      var k = nodes[i].getAttribute("data-i18n");
+      if (t[k]) nodes[i].textContent = t[k];
+    }
+    var btns = document.querySelectorAll("[data-setlang]");
+    for (var j = 0; j < btns.length; j++){
+      btns[j].setAttribute("aria-pressed", String(btns[j].getAttribute("data-setlang") === lang));
+    }
+    try { localStorage.setItem("assalah_site_lang", lang); } catch (e) {}
+    renderFeed();
+  }
+
+  function renderFeed(){
+    var t = T[lang];
+    var v  = document.getElementById("chip-version");
+    var d  = document.getElementById("chip-date");
+    var s  = document.getElementById("chip-size");
+    var nv = document.getElementById("notes-version");
+    var nb = document.getElementById("notes");
+    if (!feed){
+      v.textContent = t.version + " —"; d.hidden = true; s.hidden = true;
+      nb.textContent = "—"; nv.textContent = "—";
+      return;
+    }
+    d.hidden = false; s.hidden = false;
+    v.textContent = t.version + " " + esc(feed.versionName || "—");
+    d.textContent = esc(feed.date || t.unknown);
+    s.textContent = t.size + " " + (feed.sizeMb ? (feed.sizeMb + " MB") : t.unknown);
+    nv.textContent = esc(feed.versionName || "—");
+
+    var notes = feed.notes || {};
+    var text = notes[lang] || notes.de || notes.en || "";
+    if (!text){ for (var k in notes){ if (notes[k]) { text = notes[k]; break; } } }
+    nb.textContent = String(text || "—");
+
+    if (feed.apkUrl) document.getElementById("download").setAttribute("href", feed.apkUrl);
+
+    // "Neu"-Hinweis: nur wenn der Besucher schon einmal hier war und
+    // seither eine hoehere versionCode veroeffentlicht wurde.
+    try {
+      var seen = parseInt(localStorage.getItem(SEEN_KEY) || "", 10);
+      var code = parseInt(feed.versionCode, 10);
+      if (!isNaN(code)){
+        if (!isNaN(seen) && code > seen) document.getElementById("chip-new").hidden = false;
+        localStorage.setItem(SEEN_KEY, String(code));
+      }
+    } catch (e) {}
+  }
+
+  // Feed laden — mit Cache-Buster, damit GitHub-Pages-Caches nicht die alte
+  // Datei ausliefern. Bei jedem Fehler bleibt die Seite einfach ohne Zahlen.
+  fetch("./latest.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r){ return r.ok ? r.json() : null; })
+    .then(function (j){ feed = j; renderFeed(); })
+    .catch(function (){ /* still */ });
+
+  document.addEventListener("click", function (e){
+    var b = e.target.closest ? e.target.closest("[data-setlang]") : null;
+    if (b) applyLang(b.getAttribute("data-setlang"));
+  });
+
+  try {
+    var saved = localStorage.getItem("assalah_site_lang");
+    if (saved && T[saved]) lang = saved;
+    else if ((navigator.language || "").slice(0,2) === "en") lang = "en";
+    else if (/^(fa|prs|ps)/.test(navigator.language || "")) lang = "da";
+  } catch (e) {}
+  applyLang(lang);
+
+  // Einblenden nur, wenn der Observer wirklich verfuegbar ist — sonst bleibt
+  // die Seite ohne die .js-Klasse einfach statisch sichtbar.
+  if ("IntersectionObserver" in window){
+    document.documentElement.classList.add("js");
+    var io = new IntersectionObserver(function (entries){
+      entries.forEach(function (en){ if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: .05, rootMargin: "0px 0px -5% 0px" });
+    document.querySelectorAll(".rise").forEach(function (el){ io.observe(el); });
+    // Sicherheitsnetz: was nach 2 s noch unsichtbar ist, wird eingeblendet.
+    setTimeout(function (){
+      document.querySelectorAll(".rise:not(.in)").forEach(function (el){ el.classList.add("in"); });
+    }, 2000);
+  }
+})();
+</script>
+</body>
+</html>
