@@ -81,11 +81,10 @@ h2{font-size:23px;font-weight:600;margin:0 0 6px}
 
 /* Screenshot-Platzhalter */
 .shots{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
-.phone{aspect-ratio:9/19;max-width:230px;margin:0 auto;width:100%;
-  border-radius:26px;border:1px solid var(--line);
-  background:linear-gradient(160deg,var(--surface-dark),var(--midnight-deep));
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  color:#8F97A6;font-size:13px;padding:18px;box-shadow:var(--shadow)}
+.shots figure{margin:0;text-align:center}
+.shots img{width:100%;max-width:230px;border-radius:22px;border:1px solid var(--line);
+  box-shadow:var(--shadow);display:block;margin:0 auto;height:auto}
+.shots figcaption{margin-top:10px;font-size:13px;color:var(--ink-muted)}
 
 /* Was ist neu */
 .notes{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold-soft);
@@ -187,11 +186,14 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
 
   <section class="rise">
     <h2 data-i18n="shotsTitle">Bilder aus der App</h2>
-    <p class="lead" data-i18n="shotsLead">Screenshots folgen.</p>
+    <p class="lead" data-i18n="shotsLead">Aus der laufenden App.</p>
     <div class="shots">
-      <div class="phone" data-i18n="shot1">Startseite</div>
-      <div class="phone" data-i18n="shot2">Gebetszeiten</div>
-      <div class="phone" data-i18n="shot3">Qibla-Kompass</div>
+      <figure><img src="./screenshots/home.png" alt="" loading="lazy" width="540" height="1200">
+        <figcaption data-i18n="shot1">Startseite</figcaption></figure>
+      <figure><img src="./screenshots/prayer.png" alt="" loading="lazy" width="540" height="1200">
+        <figcaption data-i18n="shot2">Gebetszeiten</figcaption></figure>
+      <figure><img src="./screenshots/qibla.png" alt="" loading="lazy" width="540" height="1200">
+        <figcaption data-i18n="shot3">Qibla-Kompass</figcaption></figure>
     </div>
   </section>
 
@@ -232,7 +234,7 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
       f2t:"Qibla-Kompass", f2b:"Zeigt die Richtung nach Makkah und meldet zurück, wenn du richtig stehst.",
       f3t:"Offline nutzbar", f3b:"Ohne Internet rechnet die App die Zeiten selbst — unterwegs und im Funkloch.",
       f4t:"Keine Datensammlung", f4b:"Kein Tracking, keine Analytics, keine Werbung. Der Standort bleibt auf dem Gerät.",
-      shotsTitle:"Bilder aus der App", shotsLead:"Screenshots folgen.",
+      shotsTitle:"Bilder aus der App", shotsLead:"Aus der laufenden App.",
       shot1:"Startseite", shot2:"Gebetszeiten", shot3:"Qibla-Kompass",
       newTitle:"Was ist neu", inVersion:"In Version",
       installTitle:"Installation — Schritt für Schritt",
@@ -254,7 +256,7 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
       f2t:"Qibla compass", f2b:"Points to Makkah and tells you when you are facing the right way.",
       f3t:"Works offline", f3b:"Without internet the app calculates the times itself — on the road and out of coverage.",
       f4t:"No data collection", f4b:"No tracking, no analytics, no ads. Your location stays on your device.",
-      shotsTitle:"Inside the app", shotsLead:"Screenshots coming soon.",
+      shotsTitle:"Inside the app", shotsLead:"From the running app.",
       shot1:"Home", shot2:"Prayer times", shot3:"Qibla compass",
       newTitle:"What's new", inVersion:"In version",
       installTitle:"Installing — step by step",
@@ -276,7 +278,7 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
       f2t:"قطب‌نمای قبله", f2b:"جهت مکّه را نشان می‌دهد و می‌گوید کی درست ایستاده‌اید.",
       f3t:"بدون اینترنت", f3b:"بدون اینترنت، برنامه اوقات را خودش محاسبه می‌کند — در سفر و جایی که شبکه نیست.",
       f4t:"بدون جمع‌آوری داده", f4b:"بدون ردیابی، بدون تحلیل، بدون تبلیغات. موقعیت شما روی دستگاه می‌ماند.",
-      shotsTitle:"تصاویر برنامه", shotsLead:"تصاویر به‌زودی اضافه می‌شود.",
+      shotsTitle:"تصاویر برنامه", shotsLead:"از برنامه در حال اجرا.",
       shot1:"صفحه اصلی", shot2:"اوقات نماز", shot3:"قطب‌نمای قبله",
       newTitle:"تازه‌ها", inVersion:"در نسخه",
       installTitle:"نصب — گام به گام",

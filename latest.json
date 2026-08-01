@@ -1,12 +1,12 @@
 {
-  "versionName": "1.0",
-  "versionCode": 2,
+  "versionName": "1.1",
+  "versionCode": 3,
   "apkUrl": "./downloads/AsSalah.apk",
   "sizeMb": 11.1,
   "date": "2026-08-01",
   "notes": {
-    "de": "Erste öffentliche Version von As-Salah.\n• Gebetszeiten für deinen Standort mit Countdown zum nächsten Gebet\n• Qibla-Kompass mit Rückmeldung, wenn du richtig stehst\n• Funktioniert auch offline\n• Kein Tracking, keine Werbung",
-    "en": "First public release of As-Salah.\n• Prayer times for your location with a countdown to the next prayer\n• Qibla compass that tells you when you are facing the right way\n• Works offline too\n• No tracking, no ads",
-    "da": "نخستین نسخه عمومی As-Salah.\n• اوقات نماز برای موقعیت شما همراه با شمارش معکوس تا نماز بعدی\n• قطب‌نمای قبله که می‌گوید کی درست ایستاده‌اید\n• بدون اینترنت هم کار می‌کند\n• بدون ردیابی، بدون تبلیغات"
+    "de": "Die Android-App ist jetzt auf dem Stand der iPhone-App.\n• Gebetszeiten erscheinen sofort auf der Startseite\n• Neuer Einstellungs-Bereich (Zahnrad): Sprache, Berechnungsmethode, Rechtsschule, Datenquelle\n• Vier Sprachen: Deutsch, English, Español, دری\n• Erinnerungen pro Gebet, wahlweise 15 Minuten vorher\n• Zeigt das laufende Gebet mit Restzeit statt nur das nächste\n• Tablet-Darstellung korrigiert",
+    "en": "The Android app now matches the iPhone app.\n• Prayer times appear right on the home screen\n• New settings area (gear): language, calculation method, school of law, data source\n• Four languages: Deutsch, English, Español, دری\n• Reminders per prayer, optionally 15 minutes early\n• Shows the current prayer with time left, not just the next one\n• Fixed tablet layout",
+    "da": "برنامه اندروید اکنون همتراز برنامه آیفون است.\n• اوقات نماز بلافاصله در صفحه اصلی دیده می‌شود\n• بخش تنظیمات جدید (چرخ‌دنده): زبان، روش محاسبه، مذهب، منبع داده\n• چهار زبان: آلمانی، انگلیسی، اسپانیایی، دری\n• یادآوری برای هر نماز، در صورت تمایل ۱۵ دقیقه زودتر\n• نماز جاری با زمان باقی‌مانده نمایش داده می‌شود\n• نمایش تبلت اصلاح شد"
   }
 }
