@@ -1,12 +1,12 @@
 {
-  "versionName": "1.2",
-  "versionCode": 4,
+  "versionName": "1.3",
+  "versionCode": 5,
   "apkUrl": "./downloads/AsSalah.apk",
   "sizeMb": 11.1,
   "date": "2026-08-01",
   "notes": {
-    "de": "Symmetrische Kacheln auf der Startseite.\n• Arabischer und deutscher Name stehen jetzt mittig in der Kachel, ebenso Gebet und Restzeit\n• Zahnrad bleibt in allen Sprachen oben rechts\n• Aufbaut auf 1.1: vier Sprachen, Einstellungen, Erinnerungen, laufendes Gebet, korrigierte Tablet-Ansicht",
-    "en": "Symmetric tiles on the home screen.\n• Arabic and Latin names are now centred in the tile, as are prayer and time left\n• The gear stays top right in every language\n• Builds on 1.1: four languages, settings, reminders, current prayer, fixed tablet layout",
-    "da": "کاشی‌های متقارن در صفحه اصلی.\n• نام عربی و لاتین اکنون در وسط کاشی قرار دارد، همچنین نماز و زمان باقی‌مانده\n• چرخ‌دنده در همه زبان‌ها بالا سمت راست می‌ماند\n• بر پایه ۱.۱: چهار زبان، تنظیمات، یادآوری‌ها، نماز جاری، نمایش تبلت اصلاح‌شده"
+    "de": "Aufgeräumte Gebetszeiten-Liste.\n• Arabische Namen und Uhrzeiten stehen jetzt in festen Spalten sauber untereinander — vorher begann der arabische Name je nach Wortlänge woanders\n• Startseite wieder linksbündig wie in der iPhone-App\n• Enthält alles aus 1.1/1.2: vier Sprachen, Einstellungen über das Zahnrad, Erinnerungen, laufendes Gebet, Tablet-Ansicht",
+    "en": "Tidier prayer-times list.\n• Arabic names and times now line up in fixed columns — before, the Arabic name started at a different spot on every row\n• Home screen left-aligned again, as on iPhone\n• Includes everything from 1.1/1.2: four languages, settings via the gear, reminders, current prayer, tablet layout",
+    "da": "فهرست اوقات نماز مرتب شد.\n• نام‌های عربی و ساعت‌ها اکنون در ستون‌های ثابت زیر هم قرار دارند — پیش‌تر نام عربی در هر سطر جای دیگری آغاز می‌شد\n• صفحه اصلی دوباره چپ‌چین مانند آیفون\n• شامل همه موارد ۱.۱/۱.۲: چهار زبان، تنظیمات با چرخ‌دنده، یادآوری‌ها، نماز جاری، نمایش تبلت"
   }
 }
