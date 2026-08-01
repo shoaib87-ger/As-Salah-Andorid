@@ -1,12 +1,13 @@
 {
-  "versionName": "1.4",
-  "versionCode": 6,
+  "versionName": "1.5",
+  "versionCode": 7,
   "apkUrl": "./downloads/AsSalah.apk",
   "sizeMb": 11.1,
   "date": "2026-08-01",
   "notes": {
-    "de": "Gebetszeiten sitzen jetzt mittig in ihren Zeilen.\n• Der Text klebte am oberen Rand jedes Kästchens statt mittig darin zu stehen — behoben\n• Arabische Namen und Uhrzeiten weiterhin in festen Spalten untereinander\n• Startseite linksbündig wie in der iPhone-App",
-    "en": "Prayer times now sit centred in their rows.\n• The text was stuck to the top edge of each cell instead of sitting in the middle — fixed\n• Arabic names and times still line up in fixed columns\n• Home screen left-aligned as on iPhone",
-    "da": "اوقات نماز اکنون در وسط سطر خود قرار دارند.\n• متن به لبه بالای هر خانه چسبیده بود به‌جای آنکه در وسط بنشیند — اصلاح شد\n• نام‌های عربی و ساعت‌ها همچنان در ستون‌های ثابت زیر هم هستند\n• صفحه اصلی چپ‌چین مانند آیفون"
+    "de": "Neu: Widget für den Startbildschirm.\n• Zeigt das laufende Gebet mit mitlaufendem Countdown und dem Ende des Zeitfensters\n• Rechnet ohne Internet, Tippen öffnet die App\n• Webseite jetzt auch auf Spanisch\n• Kleinere Härtung von App und Seite",
+    "en": "New: home screen widget.\n• Shows the current prayer with a live countdown and the end of its window\n• Works without internet, tap opens the app\n• Website now available in Spanish too\n• Minor hardening of app and site",
+    "es": "Nuevo: widget para la pantalla de inicio.\n• Muestra la oración actual con cuenta atrás en vivo y el fin de su intervalo\n• Funciona sin internet, al tocarlo abre la app\n• La web ahora también en español\n• Pequeñas mejoras de seguridad en la app y la web",
+    "da": "جدید: ویجت برای صفحه اصلی.\n• نماز جاری را با شمارش معکوس زنده و پایان بازه آن نشان می‌دهد\n• بدون اینترنت کار می‌کند، با لمس برنامه باز می‌شود\n• وب‌سایت اکنون به اسپانیایی هم موجود است\n• بهبودهای امنیتی کوچک در برنامه و سایت"
   }
 }

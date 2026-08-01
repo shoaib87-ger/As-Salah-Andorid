@@ -1,0 +1,18 @@
+# Dieses Repository ist OEFFENTLICH. Es enthaelt ausschliesslich die
+# Download-Seite, den Update-Feed und die fertige APK.
+#
+# Deshalb eine Positivliste statt einer Sperrliste: alles ist ausgeschlossen,
+# nur die vier erlaubten Dinge sind ausdruecklich zugelassen. So kann weder
+# ein Keystore noch Quellcode noch eine Konfigurationsdatei versehentlich
+# hier landen — auch nicht durch ein unbedachtes "git add ."
+
+*
+
+!.gitignore
+!README.md
+!index.html
+!latest.json
+!downloads/
+!downloads/AsSalah.apk
+!screenshots/
+!screenshots/*.png

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <meta name="description" content="As-Salah — Gebetszeiten und Qibla-Kompass. Kostenlos, ohne Werbung, ohne Tracking. APK direkt herunterladen.">
@@ -140,6 +141,7 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
     <div class="langs" role="group" aria-label="Sprache">
       <button data-setlang="de" aria-pressed="true">DE</button>
       <button data-setlang="en" aria-pressed="false">EN</button>
+      <button data-setlang="es" aria-pressed="false">ES</button>
       <button data-setlang="da" aria-pressed="false" class="ar">دری</button>
     </div>
   </div>
@@ -268,6 +270,28 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
       safeNote:"This warning appears for every app outside a store. Only download the file from this page.",
       version:"Version", size:"Size", unknown:"unknown"
     },
+    es: {
+      tagline:"AS — SALAH",
+      heroSub:"Horarios de oración y brújula Qibla — tranquila, funciona sin conexión, sin publicidad y sin rastreo.",
+      download:"Descargar APK", heroHint:"Android · instalación directa, sin cuenta",
+      badgeNew:"Nueva versión",
+      featuresTitle:"Lo que hace la app", featuresLead:"Dos cosas, bien hechas.",
+      f1t:"Horarios de oración", f1b:"Seis horarios para tu ubicación, con cuenta atrás hasta la próxima oración.",
+      f2t:"Brújula Qibla", f2b:"Señala hacia La Meca y te avisa cuando estás orientado correctamente.",
+      f3t:"Funciona sin conexión", f3b:"Sin internet la app calcula los horarios por sí misma — de viaje y sin cobertura.",
+      f4t:"Sin recopilar datos", f4b:"Sin rastreo, sin analíticas, sin publicidad. Tu ubicación permanece en tu dispositivo.",
+      shotsTitle:"Dentro de la app", shotsLead:"De la app en funcionamiento.",
+      shot1:"Inicio", shot2:"Horarios de oración", shot3:"Brújula Qibla",
+      newTitle:"Novedades", inVersion:"En la versión",
+      installTitle:"Instalación — paso a paso",
+      installLead:"La app no viene de una tienda, por eso Android pregunta una vez. Es normal.",
+      s1t:"Descargar el APK", s1b:"Toca el botón grande de arriba. El archivo se guarda en Descargas.",
+      s2t:"Abrir el archivo", s2b:"Toca el archivo descargado — en la notificación de arriba o en la app «Archivos», en Descargas.",
+      s3t:"Confirmar el aviso", s3b:"Android dice «aplicación desconocida» o «instalar desde esta fuente». Toca Ajustes, activa el interruptor de tu navegador y vuelve atrás.",
+      s4t:"Instalar", s4b:"Toca «Instalar de todos modos» o «Instalar». Listo — As-Salah ya está en tu lista de apps.",
+      safeNote:"Este aviso aparece con cualquier app fuera de una tienda. Descarga el archivo solo desde esta página.",
+      version:"Versión", size:"Tamaño", unknown:"desconocido"
+    },
     da: {
       tagline:"AS — SALAH",
       heroSub:"اوقات نماز و قطب‌نمای قبله — آرام، بدون اینترنت هم کار می‌کند، بدون تبلیغات و بدون ردیابی.",
@@ -344,7 +368,12 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
     if (!text){ for (var k in notes){ if (notes[k]) { text = notes[k]; break; } } }
     nb.textContent = String(text || "—");
 
-    if (feed.apkUrl) document.getElementById("download").setAttribute("href", feed.apkUrl);
+    // Den Download-Link nur aus dem eigenen downloads-Ordner uebernehmen.
+    // Waere der Feed je manipuliert, koennte er den Knopf sonst auf eine
+    // fremde Datei zeigen lassen; absolute URLs werden hier verworfen.
+    if (typeof feed.apkUrl === "string" && /^\.\/downloads\/[A-Za-z0-9._-]+$/.test(feed.apkUrl)) {
+      document.getElementById("download").setAttribute("href", feed.apkUrl);
+    }
 
     // "Neu"-Hinweis: nur wenn der Besucher schon einmal hier war und
     // seither eine hoehere versionCode veroeffentlicht wurde.
@@ -374,6 +403,7 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:26px 0 40px;
     var saved = localStorage.getItem("assalah_site_lang");
     if (saved && T[saved]) lang = saved;
     else if ((navigator.language || "").slice(0,2) === "en") lang = "en";
+    else if ((navigator.language || "").slice(0,2) === "es") lang = "es";
     else if (/^(fa|prs|ps)/.test(navigator.language || "")) lang = "da";
   } catch (e) {}
   applyLang(lang);
